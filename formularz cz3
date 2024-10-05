@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .cale {
+        margin: 10px auto; /* Center the container */
+        width: 940px; /* Set the width */
+        height: 580px; /* Set the height */
+        border: 10px solid rgb(25, 80, 105); 
+        display: flex; /* Use flexbox for layout */
+    }
+    
+    .lewy {
+        width: 340px; /* Fixed width for the left section */
+        height: 580px; /* Fixed height */
+        position: relative; /* Positioning context for inner elements */
+    }
+    
+    .lewy1, .lewy2, .lewy3 {
+        width: 280px; /* Width of inner boxes */
+        height: 140px; /* Height of inner boxes */
+        padding: 20px; /* Padding inside inner boxes */
+        border: 10px solid turquoise; /* Border for inner boxes */
+    }
+    
+    .lewy1 {
+        margin-bottom: -10px; /* Negative margin to overlap with the next box */
+        background-color: rgb(69, 45, 156);
+    }
+    
+    .lewy2 {
+        margin-bottom: -10px; /* Negative margin to overlap with the next box */
+        background-color: cadetblue;
+    }
+    
+    .lewy3 {
+        background-color: orange;
+    }
+    .prawy{
+        width: 600px; /* Fixed width for the right section */
+        height: 580px;
+        float: left;
+        background-color: rgb(172, 74, 39);
+    }
+    form{
+        background-color: white;
+    }
+    </style>
+    <body>
+        <div class="cale">
+            <section class="lewy">
+                <div class="lewy1"></div>
+                <div class="lewy2"></div>
+                <div class="lewy3"></div>
+            </section>
+            <section class="prawy">
+                <form>
+                    <label for numer>numer zamówienia</label>
+                    <input type="text" id="numer" name="numer">
+                    <label for label for="data">data zamówienia</label>
+                    <input type="date" id="data" name="data"><br>
+
+                    <label for numer> numer paragonu faktury</label>
+                    <input type="text" id="numer" name="numer"><br>
+
+                    
+                    <label for="imie">Imię i  nazwisko</label>
+                    <input type="text" id="imie" name="imie"><br>
+
+                    <label for adres>adres</label>
+                    <input type="text" id="adres" name="adres"><br>
+
+                    <label for  telefon>telefon</label>
+                    <input type="text" id="telefon" name="telefon">
+                    <label for email>email</label>
+                    <input type="text" id="email" name="email"><br>
+                    <p>prosze o zwrot gotówki na rachunek bankowy w przypadku płatności za  pośrednictwem </p>
+
+                    <p>nazwa i numer rachunku bankowego <label for="numer konta">numer knota </label>
+                    <input type="text" id="numer konta"  name="numer konta">
+
+</p>
+                    
+                </form>
+            </section>
+        </div>
+    </body>
+</html>
