@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hj</title>
+</head>
+<style>
+.main{
+    width: 1000px;
+    height: 600px;
+    margin-left:auto ;
+    margin-right:auto ; 
+    padding:20px;
+    background-color: aquamarine;
+    
+}
+.lewy{
+    width: 300px;
+    height: 560px;
+    margin: 10px;
+    float: left;
+    border: 10px solid cornsilk;
+}
+.lewy1, .lewy2{
+width: 280px;
+padding: 10px;    
+}
+.lewy1 {
+    background-color: teal;
+    height: 250px;
+    border-bottom: 10px solid cornsilk; 
+}
+.lewy2{
+    height: 260px;
+}
+.prawy{
+    width: 620px;
+    height: 560px;
+    float: left;
+    border: 10px solid purple;
+    background-color: teal;
+}
+.prawy1, .prawy2{
+    width: 600px; 
+    padding: 10px;
+
+}
+.prawy1{
+    height: 350px;
+    border-bottom: 10px solid purple;
+}
+.prawy2{
+    height: 160px;
+    background-color: sandybrown ;
+}
+form{
+    border: 2px solid wheat;
+}
+
+
+
+</style>
+<body>
+    <section class="main">
+        <section class="lewy">
+            <div class="lewy1">
+lewy1
+            </div>
+            <div class="lewy2">
+        
+    <form action="get" method="get"> 
+        <label for="imie">Podaj imię:</label>
+        <input type="text" id="imie" name="imie" required><br><br> 
+
+        <label for="nazwisko">Podaj nazwisko:</label>
+        <input type="text" id="nazwisko" name="nazwisko" required><br><br> 
+        <label for="wiek">Podaj wiek:</label>
+        <input type="number" id="wiek" name="wiek" required min="0"><br><br> 
+        <button type="submit">Zatwierdź</button> 
+        <button type="reset">Reset</button> 
+    </form>
+            </div>
+        </section>
+        <section class="prawy">
+            <div class="prawy1">
+                <form action="get" method="get">
+                    <label for="pojazd">Wybierz pojazd:</label><br>
+                    <select id="pojazd" name="pojazd">
+                        <option value="volvo">Volvo</option>
+                        <option value="audi">Audi</option>
+                    </select><br><br>
+        
+                    <label for="textarea">Wprowadź tekst:</label><br>
+                    <textarea id="textarea" name="textarea" rows="4" cols="30" required></textarea><br><br>
+        
+                    <label for="jezyk">Wybierz język programowania:</label><br>
+<div>
+    <input type="radio" id="html" name="jezyk" value="html" required>
+    <label for="html">HTML</label><br>
+    
+    <input type="radio" id="css" name="jezyk" value="css">
+    <label for="css">CSS</label><br>
+    
+    <input type="radio" id="java" name="jezyk" value="java">
+    <label for="java">Java</label><br>
+</div>
+        
+                    <label for="glosnosc">Wybierz głośność:</label><br>
+                    <input type="range" id="glosnosc" name="glosnosc" min="0" max="100" value="50"><br><br>
+        
+                    <button type="submit">Zatwierdź</button> 
+                    <button type="reset">Reset</button> 
+                </form>
+            </div>
+            <div class="prawy2">
+                siema
+            </div>
+        </section>
+    </section>    
+</body>
+</html>
