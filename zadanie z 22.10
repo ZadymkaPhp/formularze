@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="siema.css">
+    <title>Strona z Sekcjami</title>
+</head>
+<body>
+    <div class="main">
+        <div class="gora">
+            <div class="gora1">Góra 1</div>
+            <div class="gora2">Góra 2</div>
+        </div>
+        <div class="dol">
+        <div class="dol1">
+            <form action="formularz.php" method="POST">
+                <fieldset>
+                    <legend>Formularz</legend>
+                    <table>
+                        <tr>
+                            <td><label for="liczba1">Imię:</label></td>
+                            <td><input type="text" id="liczba1" name="liczba1"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="liczba2">Nazwisko:</label></td>
+                            <td><input type="text" id="liczba2" name="liczba2"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Czy należysz do mniejszości?</label></td>
+                            <td>
+                                <input type="radio" id="yes" name="mniejszosc" value="tak">
+                                <label for="yes">Tak</label>
+                                <input type="radio" id="no" name="mniejszosc" value="nie">
+                                <label for="no">Nie</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: center;">
+                                <input type="submit" value="Wyślij">
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </form>
+        </div>
+            <div class="dol2"><?php
+function processFormData() {
+    // Sprawdź, czy formularz został przesłany
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Pobierz dane z formularza
+        $firstName = isset($_POST['liczba1']) ? $_POST['liczba1'] : '';
+        $lastName = isset($_POST['liczba2']) ? $_POST['liczba2'] : '';
+        $mniejszosc = isset($_POST['mniejszosc']) ? $_POST['mniejszosc'] : '';
+
+        // Wyświetl pobrane dane
+        echo "<h2>Przesłane dane:</h2>";
+        echo "<p><strong>Imię:</strong> $firstName</p>";
+        echo "<p><strong>Nazwisko:</strong> $lastName</p>";
+        echo "<p><strong>Czy należysz do mniejszości:</strong> " . ($mniejszosc ? $mniejszosc : 'Nie podano') . "</p>";
+    } else {
+        echo "<p>Formularz nie został przesłany.</p>";
+    }
+}
+
+// Wywołaj funkcję do przetwarzania danych formularza
+processFormData();
+?></div>
+</div>
+        </div>
+    </div>
+</body>
+</html>
+body {
+    font-family: 'Cambria', serif;
+    background-color: linen;
+}
+
+.main {
+    width: 1000px;
+    height: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    background-color: blue; /* Blue for main */
+}
+
+.gora, .dol {
+    width: 960px;
+    height: 350px;
+    padding: 20px;
+    background-color: lightcoral;
+}
+.dol{
+    background-color: lightcoral;
+}
+.gora {
+    margin-bottom: 20px;
+  
+}
+
+.gora1, .gora2, .dol1, .dol2 {
+    padding: 20px;
+    height: 310px;
+    float: left;
+    background-color: orange; /* Orange for inner blocks */
+}
+
+.gora1 {
+    width: 400px;
+    margin-right: 20px;
+}
+
+.gora2 {
+    width: 460px;
+}
+
+.dol1 {
+    width: 600px;
+    margin-right: 20px;
+}
+
+.dol2 {
+    width: 260px;
+}
+
+/* Tabela */
+table {
+   border-collapse: collapse;
+    width: 100%; /* Make table full width */
+}
+
+td {  
+    border: 1px solid black; /* Border for each table cell */
+}
+legend {
+    color: white; /* Legend text color */
+}
