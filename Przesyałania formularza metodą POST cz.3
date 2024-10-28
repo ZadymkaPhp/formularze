@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="simba.css">
+    <title>Prosty Kalkulator</title>
+</head>
+<body>
+    <div class="main">
+        <div class="lewa">
+            <div class="lewal">
+                <p style="font-style: italic;">To jest lewy blok 1</p>
+            </div>
+            <div class="lewa2">
+                <p style="font-weight: bold;">To jest lewy blok 2</p>
+            </div>
+        </div>
+        <div class="prawa">
+            <div class="prawal">
+                <fieldset>
+                    <legend>Formularz</legend>
+                    <form method="POST" action="">
+                        <label for="operation">Wybierz działanie:</label>
+                        <select id="operation" name="operation">
+                            <option value="addition">Dodawanie</option>
+                            <option value="subtraction">Odejmowanie</option>
+                            <option value="multiplication">Mnożenie</option>
+                            <option value="division">Dzielenie</option>
+                        </select>
+                        <br>
+                        <label for="number1">Pierwsza liczba:</label>
+                        <input type="number" id="number1" name="number1" required>
+                        <br>
+                        <label for="number2">Druga liczba:</label>
+                        <input type="number" id="number2" name="number2" required>
+                        <br>
+                        <button type="reset">Reset</button>
+                        <button type="submit">Wyślij dane</button>
+                    </form>
+                </fieldset>
+            </div>
+            <div class="prawa2">
+                <?php
+                //zaczyna z zerem zeby dzialalo skibidi
+                $result = null;
+
+                // sprawdz
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    // wez dane 
+                    $operation = isset($_POST['operation']) ? $_POST['operation'] : null;
+                    $number1 = isset($_POST['number1']) ? $_POST['number1'] : null;
+                    $number2 = isset($_POST['number2']) ? $_POST['number2'] : null;
+
+                    //opercaje
+                    switch ($operation) {
+                        case 'addition':
+                            $result = $number1 + $number2;
+                            break;
+                        case 'subtraction':
+                            $result = $number1 - $number2;
+                            break;
+                        case 'multiplication':
+                            $result = $number1 * $number2;
+                            break;
+                        case 'division':
+                            if ($number2 != 0) {
+                                $result = $number1 / $number2;
+                            } else {
+                                echo "<p>Nie można dzielić przez zero!</p>";
+                            }
+                            break;
+                        default:
+                            echo "<p>Nie wybrano działania matematycznego.</p>";
+                    }
+
+                    //wyswietl wynik
+                    if ($result !== null) {
+                        echo "<h3>Wyniki obliczeń:</h3>";
+                        echo "<p>Wybrane działanie: " . ucfirst($operation) . "</p>";
+                        echo "<p>Wprowadzona pierwsza liczba: $number1</p>";
+                        echo "<p>Wprowadzona druga liczba: $number2</p>";
+                        echo "<p>Wynik: $result</p>";
+                    }
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+body {
+    font-family: Century, Serif;
+    text-align: center;
+}
+
+.main {
+    width: 1000px;
+    height: 800px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: blue; /* Main block color */
+    display: flex; /* Use flexbox for layout */
+}
+
+.lewa, .prawa {
+    height: 780px;
+    text-align: left;
+    padding: 10px;
+    background-color: lightblue; /* Left and right blocks color */
+}
+
+.lewa {
+    width: 600px;
+    margin-right: 10px;
+}
+
+.prawa {
+    width: 350px;
+}
+
+.lewal {
+    height: 600px;
+    margin-bottom: 10px;
+    font-style: italic;
+    background-color: lime; /* Content color for left block */
+}
+
+.prawal {
+    height: 270px; /* Change to auto to fit the content */
+    margin-bottom: 10px;
+    background-color: lime; /* Content color for right block */
+}
+
+.lewa2 {
+    height: 170px;
+    font-weight: bold;
+    background-color: green; /* Color for lewa2 block */
+}
+
+.prawa2 {
+    height: 500px;
+    background-color: lime; /* Content color for right block */
+}
+
+button {
+    background-color: SlateBlue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: Indigo;
+}
+
+
